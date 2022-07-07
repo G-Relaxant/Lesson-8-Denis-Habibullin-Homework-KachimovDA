@@ -1,40 +1,37 @@
-﻿Console.Write("Введите длину горизонтальной одномерной матрицы: ");
-int gorizontalLength = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите длину вертикальной одномерной матрицы: ");
-int verticalLength = Convert.ToInt32(Console.ReadLine());
-int [] oneDimArray = new int[gorizontalLength];
-FillOneDimensionalArray(oneDimArray);
-Console.WriteLine();
-PrintOneDimArray(oneDimArray);
-Console.WriteLine();
-int [,] twoDimArray = new int[verticalLength, 1];
-FillTwoDimensionalArray(twoDimArray);
-PrintTwoDimArray(twoDimArray);
-Console.WriteLine();
-int [] matrix = new int[verticalLength, gorizontalLength];
+﻿Console.Write("Введите длину(число столбцов) матрицы A: ");
+int gorizontalLengthA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите высоту(число строк) матрицы A: ");
+int verticalLengthA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите длину(число столбцов) матрицы B: ");
+int gorizontalLengthB = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите высоту(число строк) матрицы B: ");
+int verticalLengthB = Convert.ToInt32(Console.ReadLine());
 
-
-
-void FillOneDimensionalArray(int[] a)
+Console.WriteLine();
+Console.WriteLine("Matrix A:");
+int [,] matrixA = new int[verticalLengthA, gorizontalLengthA];
+FillMatrix(matrixA);
+PrintMatrix(matrixA);
+Console.WriteLine();
+Console.WriteLine("Matrix B:");
+int [,] matrixB = new int[verticalLengthB, gorizontalLengthB];
+FillMatrix(matrixB);
+PrintMatrix(matrixB);
+Console.WriteLine();
+if(gorizontalLengthA == verticalLengthB)
 {
-    for(int i = 0; i < a.Length; i++)
-    {
-        a[i] = new Random().Next(0, 10);
-    }
+    Console.WriteLine("Matrix product A*B:");
+    int [,] productMatrix = new int[verticalLengthA, gorizontalLengthB];
+    CalculateAndFillProductMatrix(matrixA, matrixB, productMatrix);
+    PrintMatrix(productMatrix);
 }
-void PrintOneDimArray(int[] b)
+else
 {
-    Console.Write("[");
-    for(int i = 0; i < b.Length; i++)
-    {
-        Console.Write(b[i]);
-        if(i < b.Length - 1)
-            Console.Write(", ");
-        else
-            Console.WriteLine("]");
-    }
+    Console.WriteLine("Произведение матриц с заданными параметрами невозможно. Необходимо, что бы число столбцов первой матрицы было равно числу строк второй матрицы");
 }
-void FillTwoDimensionalArray(int [,] a)
+
+
+void FillMatrix(int [,] a)
 {
     for(int i = 0; i < a.GetLength(0); i++)
     {
@@ -44,26 +41,41 @@ void FillTwoDimensionalArray(int [,] a)
         }
     }
 }
-void PrintTwoDimArray(int[,] a)
+void PrintMatrix(int[,] a)
 {
     for (int i = 0; i < a.GetLength(0); i++)          
     {
         for(int j = 0; j < a.GetLength(1); j++)
         {
-            if(a[i, j] < 0)
-            {
-                Console.Write(a[i, j] + " ");
-            }
             if(a[i, j] < 10 && a[i, j] >= 0)
             {
-                Console.Write(" " + a[i, j] + " ");
+                Console.Write("  " + a[i, j] + " ");
             }
-            if(a[i, j] > 10)
+            if(a[i, j] >= 10 && a[i, j] < 100)
+            {
+                Console.Write(" "+ a[i, j] + " ");
+            }
+            if(a[i, j] >= 100)
             {
                 Console.Write(a[i, j] + " ");
             }
-            
         }
     Console.WriteLine("");
+    }
+}
+void CalculateAndFillProductMatrix(int [,] a, int [,] b, int [,] c)
+{
+    int product = 0;
+    for(int i = 0; i < verticalLengthA; i++)
+    {
+        for(int x = 0; x < gorizontalLengthB; x++)
+        {
+            for(int j = 0; j < gorizontalLengthA; j++)
+            {
+                product = product + (a[i,j] * b[j, x]);
+            }
+            c[i,x] = product;
+            product = 0;
+        }
     }
 }
