@@ -1,4 +1,6 @@
-﻿int [,] array = new int[4, 4];
+﻿// Мой вариант, работает только для квадратов
+
+int [,] array = new int[9, 9];
 FillArraySpiral(array);
 Console.WriteLine();
 PrintArray(array);
@@ -60,10 +62,10 @@ void FillArraySpiral(int [,] a)
             xCheck = x;
             a[y, x] = number;
             //Console.WriteLine("Test " + a[y, x] + " [" + y + ", " + x + "]");
-            /*if(y == endCellY && x == endCellX)
-            {
-                break;
-            }*/
+            //if(y == endCellY && x == endCellX)
+            //{
+            //    break;
+            //}
             number++;
             if(x == xReducingLengthReverse)
             {
@@ -90,6 +92,10 @@ void FillArraySpiral(int [,] a)
             }
         }
     }
+    if(a.GetLength(0) % 2 == 1)
+    {
+        a[endCellY, endCellX + 1] = number;
+    }
 }
 void PrintArray(int[,] a)
 {
@@ -113,3 +119,39 @@ void PrintArray(int[,] a)
     Console.WriteLine("");
     }
 }
+
+
+
+
+// Вариант Михаила Меркушева
+/*
+Console.Write("Введите размерность массива, который будем заполнять: ");
+int n = int.Parse(Console.ReadLine());
+
+int[,] array = new int[n, n];
+int temp = 1;
+int i = 0;
+int j = 0;
+while (temp <= n * n)
+{
+array[i,j] = temp;
+if (i <= j + 1 && i + j < n - 1)
+++j;
+else if (i < j && i + j >= n - 1)
+++i;
+else if (i >= j && i + j > n - 1)
+--j;
+else
+--i;
+++temp;
+}
+for (int c = 0; c < array.GetLength(0); c++)
+{
+for (int d = 0; d < array.GetLength(1); d++)
+{
+Console.Write( $"{array[c,d]:d3} ");
+}
+Console.WriteLine();
+}
+Console.WriteLine();
+*/
