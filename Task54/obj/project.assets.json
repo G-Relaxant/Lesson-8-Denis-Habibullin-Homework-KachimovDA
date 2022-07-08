@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\G1Sup\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\Task54.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\Task54.csproj",
       "projectName": "Task54",
-      "projectPath": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\Task54.csproj",
-      "packagesPath": "C:\\Users\\G1Sup\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\Task54.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Lesson-8-Denis-Habibullin-Homework-KachimovDA\\Task54\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\G1Sup\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

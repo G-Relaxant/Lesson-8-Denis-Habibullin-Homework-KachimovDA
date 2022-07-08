@@ -28,6 +28,7 @@ if(gorizontalLengthA == verticalLengthB)
 else
 {
     Console.WriteLine("Произведение матриц с заданными параметрами невозможно. Необходимо, что бы число столбцов первой матрицы было равно числу строк второй матрицы");
+    Console.WriteLine();
 }
 
 
