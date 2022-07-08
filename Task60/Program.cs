@@ -8,9 +8,10 @@ int widelLength = Convert.ToInt32(Console.ReadLine());
 int gorizontalLength = 5;
 int verticalLength = 4;
 int widelLength = 4;
+
 int [,,] array = new int[verticalLength, gorizontalLength, widelLength];
 Fill3DArray(array);
-Print3DArray(array);
+Print3DArrayWithIndexes(array);
 
 
 void Fill3DArray(int [,,] a)
@@ -28,7 +29,7 @@ void Fill3DArray(int [,,] a)
         }
     }
 }
-void Print3DArray(int[,,] a)
+void Print3DArrayWithIndexes(int[,,] a)
 {
     Console.WriteLine("Страница 1");
     for (int z = 0; z < a.GetLength(2); z++)          
@@ -39,15 +40,15 @@ void Print3DArray(int[,,] a)
             {
                 if(a[i, j, z] < 10 && a[i, j, z] >= 0)
                 {
-                    Console.Write("  " + a[i, j, z] + " ");
+                    Console.Write("  " + a[i, j, z] + "["+ i + ", " + j + ", " + z + "]" + " ");
                 }
                 if(a[i, j, z] >= 10 && a[i, j, z] < 100)
                 {
-                    Console.Write(" "+ a[i, j, z] + " ");
+                    Console.Write(" "+ a[i, j, z] + "["+ i + ", " + j + ", " + z + "]" + " ");
                 }
                 if(a[i, j, z] >= 100)
                 {
-                    Console.Write(a[i, j, z] + " ");
+                    Console.Write(a[i, j, z] + "["+ i + ", " + j + ", " + z + "]" + " ");
                 }
             }
             Console.WriteLine();
